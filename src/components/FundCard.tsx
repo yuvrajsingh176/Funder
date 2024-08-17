@@ -1,5 +1,5 @@
 import React from "react";
-import { tagType } from "../assets";
+import { tagType, thirdweb } from "../assets";
 
 // Define the props interface
 interface FundCardProps {
@@ -87,7 +87,7 @@ const FundCard: React.FC<FundCardProps> = ({
         <div className="flex items-center mt-[20px] gap-[12px]">
           <div className="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#13131a]">
             <img
-              src="./assets/thirdweb.png"
+              src={thirdweb}
               alt="user"
               className="w-1/2 h-1/2 object-contain"
             />

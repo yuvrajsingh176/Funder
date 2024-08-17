@@ -16,6 +16,7 @@ const Profile = () => {
       const data = await getCampaigns();
 
       setCampaigns(data);
+      setfilteredData(data); // Set filteredData to the initial campaigns data
     } catch (error) {
       console.error("Error fetching campaigns:", error);
     } finally {
