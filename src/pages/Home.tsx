@@ -5,24 +5,40 @@ import { DisplayCampaigns } from "../components";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
+  const [filteredData, setfilteredData] = useState([]);
 
-  const { address, contract, getCampaigns } = useStateContext();
+  const { address, contract, getCampaigns, text } = useStateContext();
 
   const fetchCampaigns = async () => {
     setIsLoading(true);
-    const data = await getCampaigns();
-    setCampaigns(data);
-    setIsLoading(false);
+
+    try {
+      const data = await getCampaigns();
+
+      setCampaigns(data);
+    } catch (error) {
+      console.error("Error fetching campaigns:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  useEffect(() => {
+    const data = campaigns.filter((campaign: any) =>
+      campaign.title.toLowerCase().includes(text.toLowerCase())
+    );
+    setfilteredData(data);
+  }, [text]);
 
   useEffect(() => {
     if (contract) {
       fetchCampaigns();
     }
   }, [address, contract]);
+
   return (
     <DisplayCampaigns
-      campaigns={campaigns}
+      campaigns={filteredData}
       isLoading={isLoading}
       title="All campaigns"
     />

@@ -9,7 +9,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState("dashboard");
   const [toggleDrawer, setToggleDrawer] = useState(false);
-  const { connect, address } = useStateContext();
+  const { connect, address, searchText } = useStateContext();
+  const [inputtext, setInput] = useState("");
+
+  const handletext = (e: React.ChangeEvent<HTMLInputElement>) => {
+    searchText(e.target.value); // This should update the context's text state
+  };
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
@@ -18,11 +23,12 @@ const Navbar = () => {
           type="text"
           placeholder="Search for campaigns"
           className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent outline-none"
+          onChange={handletext}
         />
 
         <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
           <img
-            src="./assets/search.svg"
+            src="../assets/search.svg"
             alt="search"
             className="w-[15px] h-[15px] object-contain"
           />

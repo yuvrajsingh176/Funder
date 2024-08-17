@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 import {
   BaseContractInterface,
   ConnectWallet,
@@ -21,6 +21,8 @@ interface ContractContextProps {
   getUserCampaigns: any;
   getDonations: any;
   donate: any;
+  text: string;
+  searchText: any;
 }
 
 interface FormData {
@@ -49,6 +51,7 @@ export const StateContextProvider = ({
   );
   const address = useAddress();
   const connect = useConnect();
+  const [text, settext] = useState("");
 
   const publicCampaign = async (form: FormData) => {
     try {
@@ -63,7 +66,6 @@ export const StateContextProvider = ({
         ],
         overrides: undefined,
       });
-      console.log("Contract call success", data);
     } catch (e) {
       console.log("Contract call failed", e);
     }
@@ -118,6 +120,9 @@ export const StateContextProvider = ({
     return parsedDonations;
   };
 
+  const searchText = (val: string) => {
+    settext(val);
+  };
   const ContractProviderValue = {
     address,
     connect,
@@ -127,6 +132,8 @@ export const StateContextProvider = ({
     getUserCampaigns,
     donate,
     getDonations,
+    searchText,
+    text,
   };
 
   return (
