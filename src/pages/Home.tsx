@@ -14,8 +14,8 @@ const Home = () => {
 
     try {
       const data = await getCampaigns();
-
       setCampaigns(data);
+      setfilteredData(data); // Set filteredData to the initial campaigns data
     } catch (error) {
       console.error("Error fetching campaigns:", error);
     } finally {
@@ -24,17 +24,17 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const data = campaigns.filter((campaign: any) =>
-      campaign.title.toLowerCase().includes(text.toLowerCase())
-    );
-    setfilteredData(data);
-  }, [text]);
-
-  useEffect(() => {
     if (contract) {
       fetchCampaigns();
     }
   }, [address, contract]);
+
+  useEffect(() => {
+    const data = campaigns.filter((campaign: any) =>
+      campaign.title.toLowerCase().includes(text.toLowerCase())
+    );
+    setfilteredData(data);
+  }, [campaigns, text]);
 
   return (
     <DisplayCampaigns
