@@ -1,40 +1,21 @@
+import { dashboard, payment, withdraw, profile, logout } from "../assets/index";
+
 export const navlinks = [
   {
     name: "dashboard",
-    imgUrl: "../assets/dashboard.svg",
+    imgUrl: dashboard,
     link: "/",
   },
   {
     name: "campaign",
-    imgUrl: "../assets/create-campaign.svg",
-
+    imgUrl: payment,
     link: "/create-campaign",
   },
-  {
-    name: "payment",
-    imgUrl: "../assets/payment.svg",
 
-    link: "/",
-    disabled: true,
-  },
-  {
-    name: "withdraw",
-    imgUrl: "../assets/withdraw.svg",
-
-    link: "/",
-    disabled: true,
-  },
   {
     name: "profile",
-    imgUrl: "../assets/profile.svg",
-
+    imgUrl: profile,
     link: "/profile",
   },
-  {
-    name: "logout",
-    imgUrl: "../assets/logout.svg",
 
-    link: "/",
-    disabled: true,
-  },
 ];

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import FundCard from "./FundCard";
+import { loader } from "../assets";
 
 const DisplayCampaigns = ({
   title,
@@ -14,7 +15,7 @@ const DisplayCampaigns = ({
 }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = (campaign:any) => {
+  const handleNavigate = (campaign: any) => {
     navigate(`/campaign-details/${campaign.title}`, { state: campaign });
   };
 
@@ -27,7 +28,7 @@ const DisplayCampaigns = ({
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
         {isLoading && (
           <img
-            src="./assets/loader.svg"
+            src={loader}
             alt="loader"
             className="w-[100px] h-[100px] object-contain"
           />

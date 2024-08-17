@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { navlinks } from "../constants";
+import { sun } from "../assets/index";
+import { search, thirdweb, logo, menu } from "../assets/index";
 
 const Icon = ({
   styles,
@@ -46,7 +48,7 @@ const Sidebar = () => {
       <Link to="/">
         <Icon
           styles="w-[52px] h-[52px] bg-[#2c2f32]"
-          imgUrl="./assets/logo.svg"
+          imgUrl={logo}
         />
       </Link>
 
@@ -58,10 +60,8 @@ const Sidebar = () => {
               {...link}
               isActive={isActive}
               handleClick={() => {
-                if (!link.disabled) {
                   setIsActive(link.name);
                   navigate(link.link);
-                }
               }}
             />
           ))}
@@ -69,7 +69,7 @@ const Sidebar = () => {
 
         <Icon
           styles="bg-[#1c1c24] shadow-secondary"
-          imgUrl="./assets/sun.svg"
+          imgUrl={sun}
         />
       </div>
     </div>

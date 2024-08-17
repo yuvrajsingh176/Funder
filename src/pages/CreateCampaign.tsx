@@ -6,6 +6,7 @@ import { ethers } from "ethers";
 
 import { checkIfImage } from "../utils";
 import Loader from "../components/Loader";
+import { money } from "../assets";
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ const CreateCampaign = () => {
         />
         <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] rounded-[10px] h-[120px]">
           <img
-            src="./assets/money.svg"
+            src={money}
             alt="money"
             className="w-10 h-10 object-contain"
           />

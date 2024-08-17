@@ -6,6 +6,7 @@ import { useStateContext } from "../context";
 import { CountBox, CustomButton } from "../components";
 import { calculateBarPercentage, daysLeft } from "../utils";
 import Loader from "../components/Loader";
+import { thirdweb } from "../assets";
 
 const CampaignDetails = () => {
   const { state } = useLocation();
@@ -82,7 +83,7 @@ const CampaignDetails = () => {
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
               <div className="w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[#2c2f32] cursor-pointer">
                 <img
-                  src="../assets/thirdweb.png"
+                  src={thirdweb}
                   alt="user"
                   className="w-[60%] h-[60%] object-contain"
                 />

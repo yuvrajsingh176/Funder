@@ -5,6 +5,8 @@ import { CustomButton } from ".";
 import { navlinks } from "../constants";
 import { useStateContext } from "../context";
 import { metamaskWallet } from "@thirdweb-dev/react";
+import { search, thirdweb, logo, menu } from "../assets/index";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState("dashboard");
@@ -28,7 +30,7 @@ const Navbar = () => {
 
         <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
           <img
-            src="../assets/search.svg"
+            src={search}
             alt="search"
             className="w-[15px] h-[15px] object-contain"
           />
@@ -49,7 +51,7 @@ const Navbar = () => {
         <Link to="/profile">
           <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
             <img
-              src="./assets/thirdweb.png"
+              src={thirdweb}
               alt="user"
               className="w-[60%] h-[60%] object-contain"
             />
@@ -61,14 +63,14 @@ const Navbar = () => {
       <div className="sm:hidden flex justify-between items-center relative">
         <div className="w-[40px] h-[40px] rounded-[10px] bg-[#2c2f32] flex justify-center items-center cursor-pointer">
           <img
-            src="./assets/logo.svg"
+            src={logo}
             alt="user"
             className="w-[60%] h-[60%] object-contain"
           />
         </div>
 
         <img
-          src="./assets/menu.svg"
+          src={menu}
           alt="menu"
           className="w-[34px] h-[34px] object-contain cursor-pointer"
           onClick={() => setToggleDrawer((prev) => !prev)}
